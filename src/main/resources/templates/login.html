@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="" en xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"> <!--do I really need this?-->
+</head>
+
+<body>
+    <div th:replace="fragments :: page-header">
+        <input type="text" name="username">
+        <br><br>
+        <input type="text" name="password"/>
+        <button>Submit</button>
+    </div>
+
+</body>
+</html>
