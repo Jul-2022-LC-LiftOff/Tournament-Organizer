@@ -2,19 +2,23 @@ package TournamentOrganizer.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LoginPageController {
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
+    @ResponseBody
     public String loginPage(Model model) {
-        return "login";
+        return "I know that you work now!";
     }
 
-    @RequestMapping("/login")
-    public String username(Model model) {
-        return
-    }
+//    @GetMapping("/login") //this obviously needs flushing out
+//    public String username(Model model) {
+//        return "username";
+//
+//    }
 
 }
