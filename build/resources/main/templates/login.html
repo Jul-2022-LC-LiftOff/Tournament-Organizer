@@ -1,25 +1,88 @@
 <!DOCTYPE html>
 <html lang="" en xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: page-header"> <!--do I really need this?-->
-
-
-
+<head th:replace="fragments :: head">
+    <!--<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'> maybe not necessary?-->
 </head>
 
-<body>
-<br></br>
-<form method = "post" action="/login/create"> <!--you haven't made this yet!-->
-    <br><br>
-    <h1 style="color: purple">Log-in to create a tournament!</h1>
-    <center>
-        <br></br>
-        <input type="text" name="username" value = "username"/>
-        <br></br>
-        <input type="text" name="password" value = "password"/>
-        <br><br>
-        <button>Login</button>
-    </center>
+<div th:replace="fragments :: page-header"></div>
 
-</form>
+<body>
+    <div class="login">
+        <h2>Please sign in!</h2>
+        <form>
+            <input type="text" class="text" name="username">
+            <span>username</span>
+            <br>
+            <br>
+            <input type="text" class="text" name="password">
+            <span>password</span>
+            <br>
+            <br>
+            <button class="signin">
+                Sign in
+            </button>
+        </form>
+
+
+    </div>
 </body>
-</html>
+
+
+
+
+
+
+
+<!--<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>-->
+
+<!--<div class="login">-->
+<!--    <h2 class="active"> sign in </h2>-->
+
+<!--    <h2 class="nonactive"> sign up </h2>-->
+<!--    <form>-->
+
+
+
+<!--        <input type="text" class="text" name="username">-->
+<!--        <span>username</span>-->
+
+<!--        <br>-->
+
+<!--        <br>-->
+
+<!--        <input type="password" class="text" name="password">-->
+<!--        <span>password</span>-->
+<!--        <br>-->
+
+<!--        <input type="checkbox" id="checkbox-1-1" class="custom-checkbox" />-->
+<!--        <label for="checkbox-1-1">Keep me Signed in</label>-->
+
+<!--        <button class="signin">-->
+<!--            Sign In-->
+<!--        </button>-->
+
+
+<!--        <hr>-->
+
+<!--        <a href="#">Forgot Password?</a>-->
+<!--    </form>-->
+
+<!--</div>-->
+
+
+
+
+<!--<br></br>-->
+<!--<form method = "post" action="/login/create"> &lt;!&ndash;you haven't made this yet!&ndash;&gt;-->
+<!--    <br><br>-->
+<!--    <h1 style="color: purple">Log-in to create a tournament!</h1>-->
+<!--    <center>-->
+<!--        <br></br>-->
+<!--        <input type="text" name="username" value = "username"/>-->
+<!--        <br></br>-->
+<!--        <input type="text" name="password" value = "password"/>-->
+<!--        <br><br>-->
+<!--        <button>Login</button>-->
+<!--    </center>-->
+
+<!--</form>-->
