@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="" en xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: page-header"> <!--do I really need this?-->
+
+
+
 </head>
 
 <body>
 <br></br>
 <form method = "post" action="/login/create"> <!--you haven't made this yet!-->
     <br><br>
-    <h1>Please Log in</h1>
-    <br><br/>
-    <input type="text" name="username" value = "username"/>
-    <br></br>
-    <input type="text" name="password" value = "password"/>
-    <button>Login</button>
+    <h1 style="color: purple">Log-in to create a tournament!</h1>
+    <center>
+        <br></br>
+        <input type="text" name="username" value = "username"/>
+        <br></br>
+        <input type="text" name="password" value = "password"/>
+        <br><br>
+        <button>Login</button>
+    </center>
+
 </form>
 </body>
 </html>
