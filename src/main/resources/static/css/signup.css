@@ -8,14 +8,12 @@
 }
 
 .signup {
-position: relative;
+position: absolute; left: 1300px; top 100px;
 height: 560px;
 width: 405px;
 margin: auto;
 padding: 11px 50px;
-background:
-url(https://i.etsystatic.com/24957288/r/il/f8778d/3032473717/il_794xN.3032473717_jlqx.jpg) no-repeat center center #505050;
-background-size: cover;
+background-color: white;
 box-shadow: 0px 30px 60px -5px #000;
 }
 
@@ -33,5 +31,9 @@ background-image: url(https://womensgolf.com/wp-content/uploads/2018/03/Nicole-W
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 150px;
+    margin-top: 300px;
+}
+
+div.signup {
+outline: 5px solid black;
 }
