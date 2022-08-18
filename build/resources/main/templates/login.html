@@ -6,20 +6,23 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<body>
+<body class="container">
 
-    <div class="login" style="position: fixed; left: 80px; top: 200px;">
-        <h2>Please log in</h2>
-        <br>
+    <div class="login">
+
+        <h1>Ready to get started?</h1>
+        <center>
+            <h3 style="color: #A93226 ">Log in!</h3>
+        </center>
         <br>
         <br>
         <form>
+            Username<br>
             <input type="text" class="text" name="username">
-            <span>username</span>
             <br>
             <br>
+            Password<br>
             <input type="text" class="text" name="password">
-            <span>password</span>
             <br>
             <br>
             <button class="signin">
