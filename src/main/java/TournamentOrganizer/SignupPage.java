@@ -1,10 +1,14 @@
 package TournamentOrganizer;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+//add abstract class
+//add one or more of the items below
+@Entity//what's the mapped superclass then?
 public class SignupPage {
 
 
