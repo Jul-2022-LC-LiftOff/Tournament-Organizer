@@ -21,7 +21,7 @@ public class SignupPageController {
     @GetMapping("signupPage")
     public String displaySignupPage(Model model) {
         model.addAttribute("title", "Signup");
-        model.addAttribute(new Signup()); //connects to signup details
+        model.addAttribute(new Signup()); //connects to signup details--
         return "signupPage";
     }
 
@@ -30,12 +30,17 @@ public class SignupPageController {
 
     @PostMapping("signupPage")
     public String processUserRegistration(@ModelAttribute @Valid Model model, Errors errors, @RequestParam String username, @RequestParam String emailAddress, @RequestParam String password, @RequestParam String verifyPassword, Signup newSignup ) {
-    model.addAttribute("title", "Create Signup");
+
+        //conditional needed to check to see if password and verifyPassword is the same
+        //it doesn't have anything it's doing
+        if (errors.hasErrors()){
+            model.addAttribute("title", "Create Signup");
+            model.addAttribute(new Signup());
+        }
 
             return "signupPage";
         }
 
-       //conditional needed to check to see if password and verifyPassword is the same
 
 }
 

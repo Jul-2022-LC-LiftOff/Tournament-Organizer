@@ -29,7 +29,7 @@ public class Signup extends AbstractEntity {
     @NotBlank
     private String verifyPassword; //password should equal verify password
 
-
+    //this constructor isn't being used...
     //constructor
     public Signup(String username, String emailAddress, String password, String verifyPassword) {
 
@@ -77,4 +77,13 @@ public class Signup extends AbstractEntity {
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
     }
+
+    //do I need an override?
+
+//    @Override
+//    public String toString() {
+//        return "Signup{" +
+//                "username='" + username + '\'' +
+//                '}';
+//    }
 }
