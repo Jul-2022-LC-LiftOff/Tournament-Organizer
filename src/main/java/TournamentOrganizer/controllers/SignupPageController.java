@@ -1,7 +1,6 @@
 package TournamentOrganizer.controllers;
 
-import TournamentOrganizer.data.SignupPageRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import TournamentOrganizer.Signup;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -16,23 +15,28 @@ import javax.validation.Valid;
 @Controller
 public class SignupPageController {
 
-    @Autowired
-    private SignupPageRepository signupPageRepository;
 
-    @GetMapping("signup")
-    public String signupPage() {
+    //display signup page
+
+    @GetMapping("signupPage")
+    public String displaySignupPage(Model model) {
+        model.addAttribute("title", "Signup");
+        model.addAttribute(new Signup()); //connects to signup details
         return "signupPage";
     }
 
 
+    //do I need a create registration form and a process registration form?//
 
-    @PostMapping("registered")
-    public String userRegisters(@ModelAttribute @Valid Model model, Errors errors, @RequestParam String username, @RequestParam String emailAddress, @RequestParam String password, @RequestParam String verifyPassword) {
-//addAttrubute adds the specific name of an attribute..
+    @PostMapping("signupPage")
+    public String processUserRegistration(@ModelAttribute @Valid Model model, Errors errors, @RequestParam String username, @RequestParam String emailAddress, @RequestParam String password, @RequestParam String verifyPassword, Signup newSignup ) {
+    model.addAttribute("title", "Create Signup");
 
-        //conditional needed to check to see if password and verifyPassword is the same
-        return "registered";
-    }
+            return "signupPage";
+        }
+
+       //conditional needed to check to see if password and verifyPassword is the same
+
 }
 
 

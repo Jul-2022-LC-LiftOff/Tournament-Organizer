@@ -1,20 +1,22 @@
 package TournamentOrganizer;
 
+import TournamentOrganizer.models.AbstractEntity;
+
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 //add abstract class
 //add one or more of the items below
-@Entity//what's the mapped superclass then?
-public class SignupPage {
 
+@Entity//what's the mapped superclass then?
+public class Signup extends AbstractEntity {
 
     @NotBlank
     @Size(min = 3, max = 15, message = "username must be between 3 and 15 characters")
     private String username;
+
 
     @Email
     @NotBlank
@@ -28,18 +30,21 @@ public class SignupPage {
     private String verifyPassword; //password should equal verify password
 
 
-
     //constructor
+    public Signup(String username, String emailAddress, String password, String verifyPassword) {
 
-    public SignupPage(String username, String emailAddress, String password, String verifyPassword){
         this.username = username;
         this.emailAddress = emailAddress;
         this.password = password;
-                this.verifyPassword = verifyPassword;
-        }
+        this.verifyPassword = verifyPassword;
+    }
 
+    //no arg constructor
 
-        //getters and setters
+    public Signup() {
+    }
+
+         //getters and setters
 
     public String getUsername() {
         return username;

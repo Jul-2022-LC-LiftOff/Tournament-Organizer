@@ -16,16 +16,16 @@
     <br>
     <br>
     <form method="post" > <!--took off "action=" here.  does this form need to submit TO something?-->
-    <input type="text" value="username" >
+    <input th:field="${signup.username}"  type="text" name="username"   value="username" >
         <br>
         <br>
-        <input type="text"  value="emailAddress">
+        <input th:field="${signup.emailAddress}" type="text" name="emailAddress" value="emailAddress">
         <br>
         <br>
-    <input type="text" value="password" >
+    <input th:field="${signup.password}" type="text" name="password" value="password" >
     <br>
     <br>
-    <input type="text"  value="verifyPassword">
+    <input th:field="${signup.verifyPassword}" type="text" name="verifyPassword" value="verifyPassword">
     <br>
     <br>
         <button class="signupButton">
