@@ -1,16 +1,15 @@
 package TournamentOrganizer;
 
 import TournamentOrganizer.models.AbstractEntity;
+import net.bytebuddy.implementation.bind.annotation.Super;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-//add abstract class
-//add one or more of the items below
 
-@Entity//what's the mapped superclass then?
+@Entity
 public class Signup extends AbstractEntity {
 
     @NotBlank
@@ -29,8 +28,9 @@ public class Signup extends AbstractEntity {
     @NotBlank
     private String verifyPassword; //password should equal verify password
 
-    //this constructor isn't being used...
+
     //constructor
+
     public Signup(String username, String emailAddress, String password, String verifyPassword) {
 
         this.username = username;
@@ -39,10 +39,13 @@ public class Signup extends AbstractEntity {
         this.verifyPassword = verifyPassword;
     }
 
-    //no arg constructor
 
+    //no arg constructor
     public Signup() {
+
     }
+
+
 
          //getters and setters
 
@@ -66,7 +69,7 @@ public class Signup extends AbstractEntity {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword() {
         this.password = password;
     }
 
@@ -78,12 +81,4 @@ public class Signup extends AbstractEntity {
         this.verifyPassword = verifyPassword;
     }
 
-    //do I need an override?
-
-//    @Override
-//    public String toString() {
-//        return "Signup{" +
-//                "username='" + username + '\'' +
-//                '}';
-//    }
 }
