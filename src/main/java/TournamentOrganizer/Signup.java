@@ -17,7 +17,7 @@ public class Signup extends AbstractEntity {
     private String username;
 
 
-    @Email
+    @Email(message = "Please enter a valid email address")
     @NotBlank
     private String emailAddress;
 

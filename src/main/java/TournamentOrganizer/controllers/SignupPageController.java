@@ -18,16 +18,15 @@ import javax.validation.Valid;
 public class SignupPageController {
 
 @Autowired
-SignupRepository signupRepository;
+private SignupRepository signupRepository;
 
 
 
     //display signup page
 
     @GetMapping("signupPage")
-    public String displaySignupPage(Model model) {
-        model.addAttribute("title", "Signup"); //do I need this?
-        model.addAttribute(new Signup()); //connects to signup details--right? Do I need this?
+    public String displaySignupPage() {
+        //call the table name from the database?
         return "signupPage";
     }
 
@@ -38,12 +37,21 @@ SignupRepository signupRepository;
         Signup signup = new Signup(username,emailAddress,password,verifyPassword);
         signupRepository.save(signup);
 
+        if (errors.hasErrors()) {
+            return "signupPage";
+        }
+        //be sure to check the password--if user doesn't have correct password, in model attribute
         if (errors.hasErrors()){
             model.addAttribute("title", "Create Signup");
             model.addAttribute(new Signup());
-        }
 
-        return "redirect:"; //I want the registered page to show after someone has signed up, then I want them re-routed to the main page with a login status as true, giving them access to create, edit, delete
+            if (!signup.getPassword().equals(signup.getVerifyPassword())) {
+                model.addAttribute("PasswordMatchError", "Passwords do not match");
+                return "signupPage";
+            }
+            //create a message or use if errors
+        }
+        return "redirect:/login"; //I want the registered page to show after someone has signed up, then I want them re-routed to the main page with a login status as true, giving them access to create, edit, delete
         }
 
 

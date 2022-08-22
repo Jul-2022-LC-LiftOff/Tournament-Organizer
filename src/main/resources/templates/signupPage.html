@@ -15,8 +15,10 @@
     <br>
     <br>
     <br>
-    <form method="post" > <!--took off "action=" here.  does this form need to submit TO something?-->
-    <input th:field="${signup.username}"  type="text" name="username" >
+    <form method="post" th:action="@{/login}">
+
+    <input th:field="${signup.username}"  type="text" name="username"> <!--make labels-->
+
         <br>
         <br>
         <input th:field="${signup.emailAddress}" type="text" name="emailAddress" value="emailAddress">
