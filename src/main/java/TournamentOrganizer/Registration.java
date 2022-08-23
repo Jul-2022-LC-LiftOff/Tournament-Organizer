@@ -1,6 +1,7 @@
 package TournamentOrganizer;
 
 import TournamentOrganizer.models.AbstractEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
@@ -29,6 +30,7 @@ public class Registration extends AbstractEntity {
 
 
     //constructor
+
 
     public Registration(String username, String emailAddress, String password, String verifyPassword) {
 
