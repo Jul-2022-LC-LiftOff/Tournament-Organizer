@@ -16,21 +16,25 @@
     <br>
     <br>
     <form method="post" th:action="@{/login}">
-
-    <input th:field="${signup.username}"  type="text" name="username"> <!--make labels-->
-
+    <div class="form-group">
+        <input type="text" name="username" class="form-control"> <!--make labels-->
+    </div>
         <br>
         <br>
-        <input th:field="${signup.emailAddress}" type="text" name="emailAddress" value="emailAddress">
+        <div class="form-group">
+            <input type="text" name="emailAddress" value="emailAddress" class="form-control">
+        </div>
         <br>
         <br>
-    <input th:field="${signup.password}" type="text" name="password" value="password" >
+    <div class="form-group">
+        <input type="text" name="password" value="password" class="form-control">
+    </div>
     <br>
     <br>
-    <input th:field="${signup.verifyPassword}" type="text" name="verifyPassword" value="verifyPassword">
+    <input type="text" name="verifyPassword" value="verifyPassword" class="form-control">
     <br>
     <br>
-        <button class="signupButton">
+        <button class="btn btn-success">
             Register
         </button>
     </form>

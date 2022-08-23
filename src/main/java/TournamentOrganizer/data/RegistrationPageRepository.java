@@ -1,10 +1,9 @@
 package TournamentOrganizer.data;
 
-import TournamentOrganizer.Signup;
+import TournamentOrganizer.Registration;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface SignupRepository extends CrudRepository<Signup, Integer> {
+public interface RegistrationPageRepository extends CrudRepository<Registration, Integer>{
 
 }

@@ -1,7 +1,6 @@
 package TournamentOrganizer;
 
 import TournamentOrganizer.models.AbstractEntity;
-import net.bytebuddy.implementation.bind.annotation.Super;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
@@ -10,7 +9,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-public class Signup extends AbstractEntity {
+public class Registration extends AbstractEntity {
 
     @NotBlank
     @Size(min = 3, max = 15, message = "username must be between 3 and 15 characters")
@@ -31,7 +30,7 @@ public class Signup extends AbstractEntity {
 
     //constructor
 
-    public Signup(String username, String emailAddress, String password, String verifyPassword) {
+    public Registration(String username, String emailAddress, String password, String verifyPassword) {
 
         this.username = username;
         this.emailAddress = emailAddress;
@@ -41,7 +40,7 @@ public class Signup extends AbstractEntity {
 
 
     //no arg constructor
-    public Signup() {
+    public Registration() {
 
     }
 
