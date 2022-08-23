@@ -34,8 +34,6 @@ public class RegistrationPageController {
     public String processUserRegistration(@ModelAttribute @Valid Registration newRegister,
                                           Errors errors, Model model, @RequestParam String username, @RequestParam String emailAddress, @RequestParam String password, @RequestParam String verifyPassword) {
 
-
-
         //make an error for when a user has already signed up; rerout to sign in page
         //do we have to make functionality for if a user has logged in already or if a user has lost their password
         //how will you let the computer know to change the sign in screen to main page?
