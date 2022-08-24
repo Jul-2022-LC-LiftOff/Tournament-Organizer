@@ -28,6 +28,8 @@ LoginPageRepository loginPageRepository;
         Login login = new Login(userLogin, userPassword);
 
         loginPageRepository.save(login);
+        //do we have to make functionality for if a user has logged in already or if a user has lost their password?
+        //how will you let the computer know to change the sign in screen to main page?
 
         return "login";
     }

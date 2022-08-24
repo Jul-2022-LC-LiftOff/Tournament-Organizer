@@ -24,29 +24,46 @@ public class RegistrationPageController {
     //display signup page
 
     @GetMapping("registrationPage")
-    public String displaySignupPage() {
+    public String displaySignupPage(Model model) {
+        model.addAttribute("title", "create registration"); //title?
+        model.addAttribute(new Registration());
+
         //call the table name from the database?
         return "registrationPage";
     }
 
 
     @PostMapping("registrationPage")
-    public String processUserRegistration(@ModelAttribute @Valid Registration newRegister,
-                                          Errors errors, Model model, @RequestParam String username, @RequestParam String emailAddress, @RequestParam String password, @RequestParam String verifyPassword) {
-
+    public String processUserRegistration(@ModelAttribute @Valid Registration newRegister,    //newRegister is never called...ummm??
+                                          Errors errors, Model model, @RequestParam String username,
+                                                                      @RequestParam String emailAddress,
+                                                                      @RequestParam String password,
+                                                                      @RequestParam String verifyPassword) {
 
         Registration register = new Registration(username,emailAddress,password,verifyPassword);
 
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Create title");
+            model.addAttribute("emailError", "Please check email address");
+            return "registrationPage";
+
+        }
+        if(username.length() <= 2){
+            model.addAttribute("title", "Create title");
+            model.addAttribute("lengthError", "username must be at least 3 characters in length");
+                    }
+
         if(!register.getPassword().equals(register.getVerifyPassword())) {
+            model.addAttribute("title", "Create title");
             model.addAttribute("PasswordMatchError", "Passwords do not match");
+            return "registrationPage";
         }
 
-                registrationPageRepository.save(register);
-        return "redirect:/login";
+        registrationPageRepository.save(register);
 
         //make an error for when a user has already signed up; rerout to sign in page
-        //do we have to make functionality for if a user has logged in already or if a user has lost their password
         //how will you let the computer know to change the sign in screen to main page?
+        return "'redirect:";
     }
 }
 //    @PostMapping("registrationPage")
@@ -55,9 +72,7 @@ public class RegistrationPageController {
 //        Registration register = new Registration(username,emailAddress,password,verifyPassword);
 //
 //
-//        if (errors.hasErrors()) {
-//            return "registrationPage";
-//        }
+
 //
 //        //create a message or use if errors
 //        if (!register.getPassword().equals(register.getVerifyPassword())) { //check the logic here

@@ -9,11 +9,11 @@ public class Login extends AbstractEntity {
 
 
     @NotBlank
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 15, message = "username must be between 3 and 15 characters")
     private String userLogin;
 
     @NotBlank
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 15, message = "username must be between 3 and 15 characters")
     private String userPassword;
 
 
@@ -46,4 +46,6 @@ public class Login extends AbstractEntity {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
+
+    //do I need a 2 string, and override methods??
 }

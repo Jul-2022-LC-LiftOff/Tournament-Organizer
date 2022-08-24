@@ -76,4 +76,7 @@ public class Registration extends AbstractEntity {
         this.verifyPassword = verifyPassword;
     }
 
+
+
 }
+//do I need a 2 string, and override methods??

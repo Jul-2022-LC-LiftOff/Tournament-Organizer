@@ -5,30 +5,32 @@
 <div th:replace="fragments :: page-header"></div>
 
 <body class="container">
-
 <div class="signup col-xl-12"> <!--add later: class="signup col-xl-12"-->
 
     <h1>Don't have an account?</h1>
     <center>
         <br>
+
         <h3 style="color: #A93226 ">Register below!</h3>
     </center>
     <br>
     <form method="post" th:action="@{/registrationPage}">
     <div class="form-group">
+        <P th:text="${lengthError}" style="color: red;"></P>
         <input type="text" name="username" value="username" class="form-control"> <!--make labels-->
     </div>
         <br>
         <div class="form-group">
+            <p th:text="${emailError}" style="color: red;"></p>
             <input type="text" name="emailAddress" value="emailAddress" class="form-control">
         </div>
         <br>
     <div class="form-group">
+        <P th:text="${PasswordMatchError}" style="color: red;"></P>
         <input type="text" name="password" value="password" class="form-control">
     </div>
     <br>
     <input type="text" name="verifyPassword" value="verifyPassword" class="form-control">
-    <br>
     <br>
         <button class="btn btn-success">
             Register
