@@ -1,4 +1,4 @@
-package TournamentOrganizer;
+package TournamentOrganizer.models;
 
 import TournamentOrganizer.models.AbstractEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +30,6 @@ public class Registration extends AbstractEntity {
 
 
     //constructor
-
-
     public Registration(String username, String emailAddress, String password, String verifyPassword) {
 
         this.username = username;
@@ -40,13 +38,9 @@ public class Registration extends AbstractEntity {
         this.verifyPassword = verifyPassword;
     }
 
-
     //no arg constructor
     public Registration() {
-
     }
-
-
 
          //getters and setters
 

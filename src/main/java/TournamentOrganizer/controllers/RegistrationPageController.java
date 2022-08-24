@@ -1,6 +1,6 @@
 package TournamentOrganizer.controllers;
 
-import TournamentOrganizer.Registration;
+import TournamentOrganizer.models.Registration;
 import TournamentOrganizer.data.RegistrationPageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,10 +36,6 @@ public class RegistrationPageController {
 
 
         Registration register = new Registration(username,emailAddress,password,verifyPassword);
-
-//        if(errors.hasErrors()) {
-//            return "registrationPage";
-//        }
 
         if(!register.getPassword().equals(register.getVerifyPassword())) {
             model.addAttribute("PasswordMatchError", "Passwords do not match");
