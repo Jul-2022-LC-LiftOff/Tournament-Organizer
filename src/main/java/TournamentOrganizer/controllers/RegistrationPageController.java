@@ -21,12 +21,12 @@ public class RegistrationPageController {
     private RegistrationPageRepository registrationPageRepository;
 
 
-    //display signup page
 
+    //display signup page
     @GetMapping("registrationPage")
     public String displaySignupPage(Model model) {
         model.addAttribute("title", "create registration"); //title?
-        model.addAttribute(new Registration());
+        model.addAttribute(new Registration());//this was to pull over object data--didn't work :-(
 
         //call the table name from the database?
         return "registrationPage";
@@ -57,7 +57,6 @@ public class RegistrationPageController {
                 return "registrationPage";
             }
     }
-
         registrationPageRepository.save(register);
 
         //make an error for when a user has already signed up; rerout to sign in page
@@ -65,27 +64,8 @@ public class RegistrationPageController {
         return "'redirect:";
     }
 }
-//    @PostMapping("registrationPage")
-//    public String processUserRegistration(Model model, Errors errors, @RequestParam String username, @RequestParam String emailAddress, @RequestParam String password, @RequestParam String verifyPassword, Registration newRegister) {
-//
-//        Registration register = new Registration(username,emailAddress,password,verifyPassword);
-//
-//
 
-//
-//        //create a message or use if errors
-//        if (!register.getPassword().equals(register.getVerifyPassword())) { //check the logic here
-//            model.addAttribute("PasswordMatchError", "Passwords do not match");
-////            return "registrationPage";
-////        }
-////
-//
-//        model.addAttribute("title", "Register");
-//            model.addAttribute(new Registration());
-//            registrationPageRepository.save(register); //should it be newRegister or register?
-
-//        return "redirect:/login";  //technically it needs to go back to the main page, but Ian's got the code on this one.
-
+        //return "redirect:/login";  //technically it needs to go back to the main page, but Ian's got the code on this one.
         //I want the registered page to show after someone has signed up, then I want them re-routed to the main page with a login status as true, giving them access to create, edit, delete
 
 
