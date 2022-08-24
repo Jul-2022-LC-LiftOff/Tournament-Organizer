@@ -45,19 +45,18 @@ public class RegistrationPageController {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create title");
             model.addAttribute("emailError", "Please check email address");
-            return "registrationPage";
 
-        }
-        if(username.length() <= 2){
-            model.addAttribute("title", "Create title");
-            model.addAttribute("lengthError", "username must be at least 3 characters in length");
-                    }
+            if(username.length() <= 2){
+                model.addAttribute("title", "Create title");
+                model.addAttribute("lengthError", "username must be at least 3 characters in length");
+            }
 
-        if(!register.getPassword().equals(register.getVerifyPassword())) {
-            model.addAttribute("title", "Create title");
-            model.addAttribute("PasswordMatchError", "Passwords do not match");
-            return "registrationPage";
-        }
+            if(!register.getPassword().equals(register.getVerifyPassword())) {
+                model.addAttribute("title", "Create title");
+                model.addAttribute("PasswordMatchError", "Passwords do not match");
+                return "registrationPage";
+            }
+    }
 
         registrationPageRepository.save(register);
 
