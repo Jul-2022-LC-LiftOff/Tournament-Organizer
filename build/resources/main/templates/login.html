@@ -10,28 +10,38 @@
 
     <div class="login">
 
-        <h1>Ready to get started?</h1>
-        <center>
-            <h3 style="color: #A93226 ">Log in!</h3>
-        </center>
+        <h1>Welcome Back!</h1>
+
+            <h3 style="color: #A93226 ">Please log-in</h3>
+
         <br>
         <br>
-        <form>
-            Username<br>
-            <input type="text" class="text" name="username">
+        <form method="post" action="@{/login}">
+
+            <div class="form-group">
+                Username<br>
+                <input type="text" class="form-control" name="username">
+            </div>
+
+            <div class="form-group">
+                Password<br>
+                <input type="text" class="form-control" name="password">
+            </div>
             <br>
-            <br>
-            Password<br>
-            <input type="text" class="text" name="password">
-            <br>
-            <br>
-            <button class="signin">
+            <button class="btn btn-success"><!--class="signin"-->
                 Sign in
             </button>
         </form>
-<!--don't forget to redirect people registration page!!-->
-
+        <br>
+        <h4>Don't have an account?</h4>
+        <h5 style="color:red;">Click here to register</h5>
+        <!--don't forget to redirect people registration page!!-->
+        <!--create hyperlink to registration page-->
     </div>
+
+
+
+
 </body>
 
 
