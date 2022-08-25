@@ -21,12 +21,14 @@ public class Registration extends AbstractEntity {
     @NotBlank
     private String emailAddress;
 
+
     @Size(min = 4, max = 15, message = "password must be between 3 and 15 characters")
     @NotBlank
     private String password;
 
+
     @NotBlank
-    private String verifyPassword; //password should equal verify password
+    private String verifyPassword;
 
 
     //constructor
@@ -75,7 +77,6 @@ public class Registration extends AbstractEntity {
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
     }
-
 
 
 }

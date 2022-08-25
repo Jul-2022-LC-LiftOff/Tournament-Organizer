@@ -17,7 +17,6 @@ public class Login extends AbstractEntity {
     private String userPassword;
 
 
-
     //constructor
         public Login(String userLogin, String userPassword) {
         this.userLogin = userLogin;
@@ -47,5 +46,6 @@ public class Login extends AbstractEntity {
         this.userPassword = userPassword;
     }
 
-    //do I need a 2 string, and override methods??
 }
+
+//do I need a 2 string, and override methods??

@@ -11,7 +11,7 @@ public abstract class AbstractEntity {
     @Id
     @GeneratedValue
     private int id;
-    private static int nextId = 1; //for insuring that each new instance will have it's own unique id.  do I need this in this case?
+    private static int nextId = 1; //for insuring that each new instance will have its own unique id.  do I need this in this case?
 
 
     //don't I need a constructor, and nextId++ for incrementation?
