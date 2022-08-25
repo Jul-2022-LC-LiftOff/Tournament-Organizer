@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.validation.Valid;
 
 
@@ -21,18 +20,16 @@ public class RegistrationPageController {
     private RegistrationPageRepository registrationPageRepository;
 
 
-
     //display signup page
     @GetMapping("registrationPage")
     public String displaySignupPage(Model model) {
         model.addAttribute("title", "create registration"); //title?
         model.addAttribute(new Registration());//this was to pull over object data--didn't work :-(
-
-        //call the table name from the database?
-        return "registrationPage";
+                return "registrationPage";
     }
 
 
+    //process user registrations
     @PostMapping("registrationPage")
     public String processUserRegistration(@ModelAttribute @Valid Registration newRegister,    //newRegister is never called...ummm??
                                           Errors errors, Model model, @RequestParam String username,
@@ -40,7 +37,7 @@ public class RegistrationPageController {
                                                                       @RequestParam String password,
                                                                       @RequestParam String verifyPassword) {
 
-        Registration register = new Registration(username,emailAddress,password,verifyPassword);
+        Registration register = new Registration(username,emailAddress,password,verifyPassword); //can newRegister go here?
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create title");
@@ -58,16 +55,22 @@ public class RegistrationPageController {
             }
     }
         registrationPageRepository.save(register);
-
-        //make an error for when a user has already signed up; rerout to sign in page
-        //how will you let the computer know to change the sign in screen to main page?
-        return "'redirect:";
+        return "login";
     }
 }
 
-        //return "redirect:/login";  //technically it needs to go back to the main page, but Ian's got the code on this one.
-        //I want the registered page to show after someone has signed up, then I want them re-routed to the main page with a login status as true, giving them access to create, edit, delete
 
+
+/*                                            Questions left to answer/Things left to do
+
+1. How do I call the table name from the database to check if a user has already signed up?
+
+2. you need to do redirecting to the main page for processUserRegistration
+
+3. How do you set login status to false for the site, denying access to create, edit, and delete tournaments?  Is this too hight for us as our first MVP project?
+
+4. After someone has signed up, I want the user re-routed to the main page with a login status as true, giving them access to create, edit, delete.
+*/
 
 
 
